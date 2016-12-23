@@ -35,7 +35,28 @@ class Options
         $this->setOptions($this->getOptions() + $this->getScales()->get());
       }
 
-      return Utils::encode($this->getOptions());
+      // Fix options so we can use callbacks properly
+      $options = Utils::safeEncode($this->getOptions());
+
+      return $options;
+    }
+
+    protected function fixOptions($options)
+    {
+      $_options = [];
+      foreach($options as $key => $option) {
+        if(is_array($option)) {
+          $_options[$key] = $this->fixOptions($option);
+        } else {
+          if(strpos($option,'js:')===0) {
+            $_options[$key] = substr($option, 3);
+          } else {
+            $_options[$key] = $option;
+          }
+        }
+      }
+
+      return $_options;
     }
 
     /**

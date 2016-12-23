@@ -46,9 +46,8 @@ class Data
       $this->setData([
           'datasets' => $this->getDatasets(),
           'labels' => $this->getLabels(),
-          'xLabels' => $this->getXLabels(),
-          'yLabels' => $this->getYLabels(),
-      ]);
+      ] + ($this->getXLabels() ? ['xLabels' => $this->getXLabels()] : [])
+        + ($this->getYLabels() ? ['yLabels' => $this->getYLabels()] : []));
 
       return Utils::encode($this->getData());
     }
