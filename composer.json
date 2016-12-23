@@ -1,0 +1,32 @@
+{
+    "name": "avninc/chartjs-wrapper",
+    "description": "This allows to generate chart.js charts using PHP fluid interface",
+    "keywords": ["chart.js", "charts", "PHP", "OOP", "PHP Charts"],
+    "homepage": "https://avn.com",
+    "authors": [
+      {
+          "name": "Vincent Gabriel",
+          "email": "vincent.gabriel@avn.com",
+          "homepage": "http://github.com/vinceg",
+          "role": "Engineer"
+      }
+    ],
+    "license": "MIT",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Charts\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Charts\\Test\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.4"
+    }
+}
