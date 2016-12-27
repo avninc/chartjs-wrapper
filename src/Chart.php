@@ -60,7 +60,7 @@ class Chart
       $options = $this->options->get();
       $object = $this->chartObject;
       $contents = <<<EOF
-var chartElement = document.getElementById("{$this->getElementId()}");
+var chartElement = document.getElementById("{$this->getElementId()}").getContext("2d");
 var {$object} = new Chart(chartElement, {
     type: "{$this->type->get()}",
     data: $data,
